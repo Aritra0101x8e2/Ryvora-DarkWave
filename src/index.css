@@ -1,0 +1,122 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 100% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 214 60% 5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 214 60% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 76% 56%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 40% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 40% 12%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 217 76% 56%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 40% 20%;
+    --input: 217 40% 20%;
+    --ring: 217 76% 56%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 214 60% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 76% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 40% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 40% 20%;
+    --sidebar-ring: 217 76% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-biometric-dark text-biometric-text;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(30, 136, 229, 0.15) 2px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(30, 136, 229, 0.1) 2px, transparent 0);
+    background-size: 100px 100px;
+  }
+  
+  /* Scrollbar customization */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(13, 33, 73, 0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(30, 136, 229, 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(30, 136, 229, 0.7);
+  }
+}
+
+@layer components {
+  .biometric-card {
+    @apply bg-biometric-navy border border-biometric-blue rounded-lg shadow-lg overflow-hidden;
+    background-image: linear-gradient(135deg, rgba(11, 79, 140, 0.1), transparent);
+  }
+  
+  .biometric-data-point {
+    @apply w-2 h-2 rounded-full;
+    animation: pulse-slow 2s infinite;
+  }
+  
+  .biometric-chart-grid {
+    @apply border-biometric-blue/20;
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(30, 136, 229, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 136, 229, 0.05) 1px, transparent 1px);
+  }
+  
+  .biometric-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .biometric-glow::after {
+    @apply absolute top-0 -left-3/4 block w-1/2 h-full z-10 transform -skew-x-12;
+    content: '';
+    background: linear-gradient(90deg, transparent, rgba(66, 165, 245, 0.3), transparent);
+    animation: beam 2s linear infinite;
+  }
+  
+  .security-level-bar {
+    @apply h-3 rounded-full overflow-hidden relative;
+    background: rgba(11, 79, 140, 0.2);
+  }
+  
+  .security-level-progress {
+    @apply absolute top-0 left-0 h-full;
+    background: linear-gradient(90deg, #1E88E5, #42A5F5);
+    transition: width 1s ease;
+  }
+}
